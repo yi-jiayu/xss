@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        .message {
+            margin: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span><a href="/">Home</a></span>
+    <span><a href="/login">Login</a></span>
+</nav>
+
+<h1>Home</h1>
+
+<h2>Chat</h2>
+<div>
+    {% for message in messages %}
+        <article class="message">
+            [{{ message.time }}] &lt;{{ message.name }}&gt; {{ message.content | safe }}
+        </article>
+    {% endfor %}
+</div>
+
+<form method="post">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name">
+    </div>
+    <div>
+        <label for="content">Message</label>
+        <input type="text" id="content" name="content" autofocus required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

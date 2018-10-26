@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span><a href="/">Home</a></span>
+    <span><a href="/login">Login</a></span>
+</nav>
+
+<h1>Login</h1>
+
+{% if message is not none %}
+    <p class="message">{{ message | safe }}</p>
+{% endif %}
+
+<form method="post">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+    </div>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
